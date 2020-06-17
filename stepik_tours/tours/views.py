@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .data import tours, title, subtitle, description, departures
 
 
-def MainView(request):
+def main_view(request):
     main_tours = {}
     while len(main_tours) < 6:
         key = random.randint(1, len(tours))
@@ -22,7 +22,7 @@ def MainView(request):
     return render(request, 'tours/index.html', context=data)
 
 
-def DepartureView(request, departure):
+def departure_view(request, departure):
     departure_tours = {}
     costs, nights = [], []
 
@@ -51,7 +51,7 @@ def DepartureView(request, departure):
     return render(request, 'tours/departure.html', context=data)
 
 
-def TourView(request, id):
+def tour_view(request, id):
     title_page = tours[id]['title'] + ' ' + ('★' * int(tours[id]['stars']))
     departure = tours[id]['departure']
     city = departures[departure].split(' ')[-1]
