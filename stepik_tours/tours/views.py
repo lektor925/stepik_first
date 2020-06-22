@@ -6,8 +6,9 @@ from .data import tours, title, subtitle, description, departures
 
 
 def main_view(request):
+    num_posts_on_main = 6
     main_tours = {}
-    while len(main_tours) < 6:
+    while len(main_tours) < num_posts_on_main:
         key = random.randint(1, len(tours))
         if key not in main_tours:
             main_tours[key] = tours[key]
